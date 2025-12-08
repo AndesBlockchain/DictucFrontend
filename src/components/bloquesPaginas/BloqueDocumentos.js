@@ -1,0 +1,32 @@
+import React from "react";
+import Bloque from "./Bloque";
+
+
+const BloqueDocumentos = ({datosBloque}) => {
+
+
+    const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
+ 
+console.log(datosBloque)
+
+  const documentosSorted = datosBloque.etiqueta_documentos[0].documentos.sort((a, b) => a.sortOrder - b.sortOrder);
+console.log(documentosSorted)
+  return (
+        <Bloque datosBloque={datosBloque.Bloque}>
+        <div className="grid grid-cols-6 justify-center items-center gap-8 mt-8 lg:ml-8 lg:mr-8 md:mr-4 md:ml-4 sm:mr-2 sm:ml-2">
+        {documentosSorted.map((documento)=>(
+                <div className="flex flex-col justify-center items-center w-96">
+                    <div className="avatar">
+                        <div className="w-24 rounded">
+                            <img src={STRAPI_URL + documento.Foto.url} alt={documento.Titulo}/>
+                        </div>
+                    </div> 
+                    <div className="text-left">{documento.Titulo}</div>
+                </div>
+        ))}
+        </div>
+        </Bloque>
+    )
+}
+
+export default BloqueDocumentos

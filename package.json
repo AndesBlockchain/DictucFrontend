@@ -1,0 +1,48 @@
+{
+  "name": "dictuc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "dictuc",
+  "author": "Patricio Lopez",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@sentry/gatsby": "^10.4.0",
+    "@tailwindcss/postcss": "^4.1.10",
+    "autoprefixer": "^10.4.21",
+    "clsx": "^2.1.1",
+    "gatsby": "^5.14.1",
+    "gatsby-cli": "^5.14.0",
+    "gatsby-omni-font-loader": "^2.0.2",
+    "gatsby-plugin-postcss": "^6.14.0",
+    "gatsby-plugin-sentry": "^1.0.1",
+    "gatsby-plugin-sitemap": "^6.14.0",
+    "gatsby-source-strapi": "^5.0.4",
+    "gatsby-transformer-remark": "^6.14.0",
+    "graphql-tag": "^2.12.6",
+    "motion": "^12.23.19",
+    "postcss": "^8.5.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.62.0",
+    "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "daisyui": "^5.0.50"
+  }
+}

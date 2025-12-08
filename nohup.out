@@ -1,0 +1,190 @@
+success compile gatsby files - 3.047s
+
+[2K[1A[2K[Gsuccess load gatsby config - 0.048s
+
+[2K[1A[2K[Gsuccess load plugins - 0.421s
+
+[2K[1A[2K[GLoaded gatsby-source-strapi-plugin
+
+[2K[1A[2K[Gsuccess onPreInit - 0.006s
+
+[2K[1A[2K[Gsuccess delete worker cache from previous builds - 0.003s
+
+[2K[1A[2K[Gsuccess initialize cache - 0.061s
+
+[2K[1A[2K[Gsuccess copy gatsby files - 0.352s
+
+[2K[1A[2K[Gsuccess Compiling Gatsby Functions - 0.381s
+
+[2K[1A[2K[Gsuccess onPreBootstrap - 0.420s
+
+[2K[1A[2K[Gsuccess createSchemaCustomization - 0.002s
+
+[2K[1A[2K[Ginfo gatsby-source-strapi is using Strapi version 5
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/agente with populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/alertas-modals with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/carruseles with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-footers with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-footer-superiors with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-secundarios with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-superiors with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/noticias with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/paginas with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/sectores with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/servicios with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/tipos-de-contactos with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/tipo-de-servicios with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch page 2 from Strapi - /api/servicios with
+pagination[pageSize]=100&pagination[page]=2&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch page 3 from Strapi - /api/servicios with
+pagination[pageSize]=100&pagination[page]=3&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch page 4 from Strapi - /api/servicios with
+pagination[pageSize]=100&pagination[page]=4&populate=%2A
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/agente with
+populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/alertas-modals with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]
+=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/carruseles with pagination[pageSi
+ze]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-footers with pagination[page
+Size]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-footer-superiors with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]
+=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-secundarios with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]
+=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/menu-superiors with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]
+=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/noticias with pagination[pageSize
+]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/paginas with pagination[pageSize]
+=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/sectores with pagination[pageSize
+]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/servicios with pagination[pageSiz
+e]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/tipos-de-contactos with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]
+=1764642505411
+
+[2K[1A[2K[Ginfo Starting to fetch data from Strapi - /api/tipo-de-servicios with
+pagination[pageSize]=100&pagination[page]=1&populate=%2A&filters[updatedAt][$gt]
+=1764642505411
+
+[2K[1A[2K[Gsuccess Clean up stale nodes - 0.144s - 729/0 0.00/s
+
+[2K[1A[2K[Gsuccess Checking for changed pages - 0.001s
+
+[2K[1A[2K[Gsuccess source and transform nodes - 44.674s
+
+[2K[1A[2K[Gsuccess building schema - 1.018s
+
+[2K[1A[2K[Gsuccess createPages - 0.012s
+
+[2K[1A[2K[Gsuccess createPagesStatefully - 1.228s
+
+[2K[1A[2K[Ginfo Total nodes: 1802, SitePage nodes: 728 (use --verbose for breakdown)
+
+[2K[1A[2K[Gsuccess Checking for changed pages - 0.023s
+
+[2K[1A[2K[Gsuccess write out redirect data - 0.012s
+
+[2K[1A[2K[Gsuccess onPostBootstrap - 0.001s
+
+[2K[1A[2K[Ginfo bootstrap finished - 54.075s
+
+[2K[1A[2K[Gsuccess onPreExtractQueries - 0.002s
+
+[2K[1A[2K[Gsuccess extract queries from components - 3.362s
+
+[2K[1A[2K[Gwarn The GraphQL query in the non-page component
+"/home/azureuser/frontend/src/helpers/queries.js" will not be run.
+
+[2K[1A[2K[GExported queries are only executed for page components. It's possible you're
+trying to create pages in your gatsby-node.js and that's failing for some
+reason.
+
+If the failing component is a regular component and not intended to be a page
+component, you generally want to use "useStaticQuery"
+(https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/) instead
+of exporting a page query.
+
+If you're more experienced with GraphQL, you can also export GraphQL fragments
+from components and compose the fragments in the Page component query and pass
+data down into the child component (https://www.gatsbyjs.com/docs/reference/grap
+hql-data-layer/using-graphql-fragments/)
+
+[2K[1A[2K[Gsuccess write out requires - 0.007s
+
+[2K[1A[2K[G⠀
+
+[2K[1A[2K[GYou can now view dictuc in the browser.
+
+[2K[1A[2K[G⠀
+
+[2K[1A[2K[G  http://localhost:8000/
+
+[2K[1A[2K[G⠀
+
+[2K[1A[2K[GView GraphiQL, an in-browser IDE, to explore your site's data and schema
+
+[2K[1A[2K[G⠀
+
+[2K[1A[2K[G  http://localhost:8000/___graphql
+
+[2K[1A[2K[G⠀
+
+[2K[1A[2K[GNote that the development build is not optimized.
+
+[2K[1A[2K[GTo create a production build, use gatsby build
+
+[2K[1A[2K[G⠀
+
+[2K[1A[2K[Gsuccess Building development bundle - 32.779s
+
+[2K[1A[2K[Gsuccess Writing page-data.json and slice-data.json files to public directory -
+0.215s - 1/1 4.66/s
+
