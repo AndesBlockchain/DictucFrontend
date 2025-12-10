@@ -16,14 +16,17 @@ export default function HomeTipoServicio(props)
   const tipoServicio = tiposDeServicio?.nodes?.find(item => item.slug === slug);
   const servicios= useServicios();
 
-
+console.log("tipo servcio",tipoServicio);
   const [filtros,setFiltros]= useState({
     tipoServicio: '',
     sectoresPais: [slug],
     busqueda: ''
   })
 
+  const STRAPI_URL = process.env.STRAPI_API_URL;
+
   const [serviciosVisibles,setServiciosVisibles]=useState(servicios)
+
 
   // Función para filtrar servicios basándose en el estado filtros
   const filtrarServicios = (servicios, filtros) => {
@@ -82,10 +85,19 @@ export default function HomeTipoServicio(props)
     setFiltros(nuevosFiltros);
   }
 
+  const obtenerBanner = () => {
+    if (tipoServicio?.BannerBuscadorServicios === null || tipoServicio?.BannerBuscadorServicios === undefined) {
+      return bannerLaboratorios;
+    }
+    return STRAPI_URL + tipoServicio.BannerBuscadorServicios.url;
+  }
+
+  const banner = obtenerBanner();
+
 
 
   return (
-    <PaginaInterior banner={bannerLaboratorios} titulo={tipoServicio.nombre} breadcrum={[{ label: "Home", link: "/" }, { label: tipoServicio.nombre, link: "/" + slug }]}> 
+    <PaginaInterior banner={banner} titulo={tipoServicio.nombre} breadcrum={[{ label: "Home", link: "/" }, { label: tipoServicio.nombre, link: "/" + slug }]}> 
         <div className="mb-4">
         <div className="flex flex-row">
         <FiltroServicios tiposDeServicioVisibles={false} onFiltrosChange={handleFiltrosChange} filtroTipoServicio={slug} />

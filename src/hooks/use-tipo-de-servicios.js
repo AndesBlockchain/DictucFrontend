@@ -19,6 +19,11 @@ const useTipoDeServicio = () => {
             url
             width
           }
+          BannerBuscadorServicios {
+            height
+            url
+            width
+          }
         }
       }
     }
