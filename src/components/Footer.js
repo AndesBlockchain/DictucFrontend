@@ -50,7 +50,7 @@ const Footer = () => {
   
         </footer>
         <div className="flex flex-row bg-black text-white text-xs p-1 justify-center">
-          <a href="/nosotros/terminos-y-condiciones">Términos y Condiciones</a>
+          <a href="/nosotros/condiciones-de-uso-del-sitio">Condiciones de Uso del Sitio</a>
         </div>  
         </div>
     );

@@ -16,10 +16,9 @@ export default function HomeTipoServicio(props)
   const tipoServicio = tiposDeServicio?.nodes?.find(item => item.slug === slug);
   const servicios= useServicios();
 
-console.log("tipo servcio",tipoServicio);
   const [filtros,setFiltros]= useState({
     tipoServicio: '',
-    sectoresPais: [slug],
+    sectoresPais: [],
     busqueda: ''
   })
 
@@ -75,11 +74,10 @@ console.log("tipo servcio",tipoServicio);
 
   const handleFiltrosChange = (data) => {
     // Crear un nuevo objeto de filtros combinando los datos recibidos
-    // y manteniendo el sector actual como base
     const nuevosFiltros = {
       tipoServicio: data.tipoServicio || '',
       busqueda: data.busqueda || '',
-      sectoresPais: data.sectoresPais && data.sectoresPais.length > 0 ? data.sectoresPais : [slug]
+      sectoresPais: data.sectoresPais && data.sectoresPais.length > 0 ? data.sectoresPais : []
     };
     console.log('Nuevos filtros:', nuevosFiltros);
     setFiltros(nuevosFiltros);
@@ -104,14 +102,21 @@ console.log("tipo servcio",tipoServicio);
         <div className="flex-3 pl-4 pr-4">
           <div className="text-xl font-semibold mb-1 text-center">Servicios Encontrados</div>
           <FranjaAzul />
-          {servicios.nodes.map((item, idx) =>
-            <FilaServicios 
-              nombre_servicio={item.nombre}
-              sectores={item.sectores_pais}
-              unidad={item.unidade}
-              slug={item.slug}
-              color_fondo={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}
-            />
+          {serviciosVisibles.nodes && serviciosVisibles.nodes.length > 0 ? (
+            serviciosVisibles.nodes.map((item, idx) => (
+              <FilaServicios 
+                key={item.slug}
+                nombre_servicio={item.nombre}
+                sectores={item.sectores_pais}
+                unidad={item.unidad}
+                slug={item.slug}
+                color_fondo={idx % 2 === 0 ? "bg-gray-100" : "bg-white"}
+              />
+            ))
+          ) : (
+            <div className="text-center py-8 text-gray-500">
+              No se encontraron servicios con los filtros aplicados
+            </div>
           )}
 
         </div>
