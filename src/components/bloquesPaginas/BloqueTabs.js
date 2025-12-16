@@ -4,7 +4,7 @@ import CallToActionGroup from "../CallToActionGroup";
 
 const BloqueTabs = ({ datosBloque }) => {
   const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
-
+console.log("tabs",datosBloque)
   // Ejemplo de datos para las tabs
   const tabsData = datosBloque?.Tabs || [];
 
