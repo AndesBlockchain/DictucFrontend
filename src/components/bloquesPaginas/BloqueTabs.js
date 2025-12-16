@@ -28,7 +28,7 @@ const BloqueTabs = ({ datosBloque }) => {
                 <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
                   <div className="flex flex-row items-start gap-2 mb-4">
                     <div className="flex flex-item w-2/5 pl-8 pr-8">
-                      <img className="rounded-xl" src={STRAPI_URL + tab.Foto?.url || ""} />
+                      <img className="rounded-xl" src={STRAPI_URL + tab.Foto?.formats.small.url || ""} />
                     </div>
                     <div className="mt-auto mb-auto w-3/5 pl-8 text-left text-sm" dangerouslySetInnerHTML={{__html: tab.Texto?.data.Texto || ""}} />
                    
