@@ -49,12 +49,17 @@ module.exports = {
         "menu-footer",
         "menu-secundario",
         "noticia",
-        "pagina"
+        {
+          singularName: "pagina",
+          queryParams: {
+            populate: "all"
+          }
+        }
       ],
       singleTypes: ["agente"],
       queryLimit: 1000,
       // Configuración específica para poblar todos los campos anidados
-      populate: {
+   /*    populate: {
         paginas: {
           color_titulo: {
             populate: "*"
@@ -131,7 +136,7 @@ module.exports = {
             }
           }
         }
-      }
+      } */
     },
     },
     {

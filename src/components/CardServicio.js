@@ -1,5 +1,6 @@
 import React from "react"
 import clsx from "clsx"
+import CallToAction from "./CallToAction";
 
 const CardServicio = ({ titulo, icono, contenido, callToAction=false, color_fondo,color_texto="black" }) => {
   
@@ -30,9 +31,13 @@ const CardServicio = ({ titulo, icono, contenido, callToAction=false, color_fond
         </div>
        <div>
        {callToAction && (
-          <a href={callToAction.url} className={clsx("btn btn-primary text-center")}>
-            {callToAction.texto}
-          </a>
+        <CallToAction
+        url={callToAction.url}
+        texto={callToAction.texto}
+        colorFondo={callToAction.colorFondo}
+        colorTexto={callToAction.colorTexto}
+        ComoAbrir={callToAction.ComoAbrir}
+      />
         )}
        </div>
 
