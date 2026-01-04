@@ -37,3 +37,13 @@ export default function PaginasContenido(props)
 
   );
 }
+
+export async function config() {
+  // Optionally use GraphQL here
+
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}
