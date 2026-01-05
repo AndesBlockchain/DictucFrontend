@@ -3,7 +3,7 @@ import Bloque from "./Bloque";
 import CardServicio from "../CardServicio";
 
 const BloqueAcordeon = ({ datosBloque }) => {
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
+  const STRAPI_URL = process.env.STRAPI_API_URL;
   const tabsData = datosBloque?.Tabs || []
 
   return (

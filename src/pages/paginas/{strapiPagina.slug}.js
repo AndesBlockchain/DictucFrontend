@@ -17,13 +17,13 @@ export default function PaginasContenido({pageContext,data}) {
 
   return (
     <PaginaInterior
+      banner={pagina.Banner}
       gatsbyImageData={pagina.Banner?.localFile?.childImageSharp?.gatsbyImageData}
-      banner={pagina.Banner?.localFile?.childImageSharp?.gatsbyImageData ? null : pagina.Banner?.url}
       titulo = {pagina.titulo}
       titulo_visible={pagina.TituloVisible}
       color_titulo= {pagina.color_titulo.Codigo}
       breadcrum={[
-        { label: "Home", link: "/" }, 
+        { label: "Home", link: "/" },
         { label: pagina?.titulo || "Página", link: "/" }
       ]}> 
       <MenuSecundario slug={slug} />

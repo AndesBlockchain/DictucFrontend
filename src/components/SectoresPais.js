@@ -2,7 +2,6 @@ import React from "react"
 import FranjaAzul from "./FranjaAzul";
 import ItemSectoresPais from "./ItemSectoresPais";
 import useSectoresPais from "../hooks/use-sectores-pais";
-import Titulo from "./Titulo";
 
 const SectoresPais=(titulo)=>{
 

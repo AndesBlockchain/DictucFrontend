@@ -9,7 +9,7 @@ const BloqueDocumentos = ({datosBloque}) => {
 console.log(datosBloque)
 
   const documentosSorted = datosBloque.etiqueta_documentos[0].documentos.sort((a, b) => a.sortOrder - b.sortOrder);
-console.log(documentosSorted)
+
   return (
         <Bloque datosBloque={datosBloque.Bloque}>
         <div className="grid grid-cols-6 justify-center items-center gap-8 mt-8 lg:ml-8 lg:mr-8 md:mr-4 md:ml-4 sm:mr-2 sm:ml-2">

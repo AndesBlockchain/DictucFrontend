@@ -7,12 +7,12 @@ import Breadcrumbs from "./Breadcrumbs"
 import BannerInterior from "./BannerInterior"
 
 
-export default function PaginaInterior({children, breadcrum = [], banner, gatsbyImageData, titulo="", color_titulo="azul-dictuc", titulo_visible=true}) {
- 
+export default function PaginaInterior({children, breadcrum = [], banner, gatsbyImageData, fallback, titulo="", color_titulo="azul-dictuc", titulo_visible=true}) {
+
   return (
     <main className="container m-auto max-w-6xl mb-4 font-montserrat bg-white text-black">
       <BarraSuperior />
-      <BannerInterior imagen={banner} gatsbyImageData={gatsbyImageData} titulo={titulo} titulo_visible={titulo_visible} color_titulo={color_titulo}  />
+      <BannerInterior banner={banner} gatsbyImageData={gatsbyImageData} fallback={fallback} titulo={titulo} titulo_visible={titulo_visible} color_titulo={color_titulo}  />
       <Breadcrumbs items={breadcrum} />
 
       {children}

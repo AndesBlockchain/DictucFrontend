@@ -1,9 +1,8 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import StrapiImage from "./StrapiImage";
 
-const BannerInterior = ({ imagen, gatsbyImageData, alt = "Banner" , titulo="", titulo_visible=true, color_titulo="azul-dictuc"}) => {
-  
-  console.log("color_titulo",color_titulo)
+const BannerInterior = ({ banner, gatsbyImageData, fallback, alt = "Banner" , titulo="", titulo_visible=true, color_titulo="azul-dictuc"}) => {
+
   return (
     <div className="w-full pt-2 mb-2 relative">
     {titulo_visible && (
@@ -11,22 +10,15 @@ const BannerInterior = ({ imagen, gatsbyImageData, alt = "Banner" , titulo="", t
         {titulo}
       </div>
     )}
-      {gatsbyImageData ? (
-        <GatsbyImage 
-          image={gatsbyImageData}
-          alt={alt}
-          className="w-full h-auto object-contain"
-        />
-      ) : imagen ? (
-        <img
-          src={imagen}
-          alt={alt}
-          className="w-full h-auto object-contain"
-          style={{ display: 'block' }}
-        />
-      ) : null}
+      <StrapiImage
+        imagen={banner}
+        gatsbyImageData={gatsbyImageData}
+        fallback={fallback}
+        alt={alt}
+        className="w-full h-auto object-contain"
+      />
     </div>
-    
+
   );
 };
 

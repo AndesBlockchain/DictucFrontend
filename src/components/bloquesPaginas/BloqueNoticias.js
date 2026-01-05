@@ -19,11 +19,13 @@ console.log("bloque noticias",datosBloque)
             <CardNoticia
               key={noticia.id}
               titulo={noticia.titulo}
-              foto={noticia.foto?.url ? `${process.env.STRAPI_API_URL}${noticia.foto.url}` : (noticia.url_foto || FotoDefaultNoticias)}
+              imagen={noticia.foto}
+              gatsbyImageData={noticia.foto?.localFile?.childImageSharp?.gatsbyImageData}
+              fallback={noticia.url_foto || FotoDefaultNoticias}
               fecha={noticia.fecha}
               bajada={noticia.cuerpo.data.cuerpo}
               slug={noticia.slug}
-             mostrarFecha={mostrarFecha}
+              mostrarFecha={mostrarFecha}
             />
           ))}
         </div>

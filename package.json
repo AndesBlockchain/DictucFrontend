@@ -43,7 +43,8 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.62.0",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.10",
+    "why-is-node-running": "^3.2.2"
   },
   "devDependencies": {
     "daisyui": "^5.0.50"

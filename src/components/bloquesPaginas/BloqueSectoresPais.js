@@ -1,7 +1,7 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image";
-import useSectoresPais from "../../hooks/use-sectores-pais"; 
+import useSectoresPais from "../../hooks/use-sectores-pais";
 import Bloque from "./Bloque";
+import StrapiImage from "../StrapiImage";
 
 const BloqueSectoresPais = ({datosBloque}) => {
 
@@ -18,15 +18,12 @@ const BloqueSectoresPais = ({datosBloque}) => {
           <div key={item.slug} className="">
           <div className="justify-center w-full">
           <a href={"/tipos-de-servicio/" + item.slug} className="flex flex-col justify-center">
-            {item.icono?.[0]?.localFile?.childImageSharp?.gatsbyImageData ? (
-              <GatsbyImage 
-                image={item.icono[0].localFile.childImageSharp.gatsbyImageData}
-                alt=""
-                className="ml-auto mr-auto"
-              />
-            ) : item.icono?.[0]?.url ? (
-              <img src={item.icono[0].url} alt="" className="ml-auto mr-auto"/>
-            ) : null}
+            <StrapiImage
+              imagen={item.icono}
+              gatsbyImageData={item.icono?.[0]?.localFile?.childImageSharp?.gatsbyImageData}
+              alt={item.nombre || ""}
+              className="ml-auto mr-auto"
+            />
           </a>
           </div>
           </div>

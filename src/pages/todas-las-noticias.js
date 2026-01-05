@@ -15,8 +15,8 @@ export default function HomeNoticiasPage() {
     console.log('Noticias ordenadas:', noticiasOrdenadas);
 
   return (
-    <PaginaInterior banner={BannerNoticias}
-                    titulo="Noticias" 
+    <PaginaInterior fallback={BannerNoticias}
+                    titulo="Noticias"
                     breadcrum={[{ label: "Home", link: "/" }, { label: "Noticias y Proyectos Destacados", link: "/noticias" }]}> 
       <div>
         <fieldset className="fieldset border-base-300 rounded-box w-xs border p-4 mb-8">

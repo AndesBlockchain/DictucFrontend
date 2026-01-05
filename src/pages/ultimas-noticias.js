@@ -13,8 +13,8 @@ export default function HomeNoticiasPage({pageContext,data}) {
     const noticias= data.allStrapiNoticia;
 
   return (
-    <PaginaInterior banner={BannerNoticias}
-                    titulo="Noticias y Proyectos Destacados" 
+    <PaginaInterior fallback={BannerNoticias}
+                    titulo="Noticias y Proyectos Destacados"
                     breadcrum={[{ label: "Home", link: "/" }, { label: "Noticias y Proyectos Destacados", link: "/noticias" }]}> 
     <Noticias noticias={noticias} linkFiltroNoticias={true} />
     <Titulo titulo="Nuestro Instagram"/>

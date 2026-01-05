@@ -55,9 +55,10 @@ const IndexPage = () => {
       
       {/* Modal de Alerta */}
       {modalAbierto && modalsFiltrados.length > 0 && (
-        <ModalAlerta 
+        <ModalAlerta
           onClose={cerrarModal}
-          Alerta={modalsFiltrados[0].imagen.url}
+          imagen={modalsFiltrados[0].imagen}
+          gatsbyImageData={modalsFiltrados[0].imagen?.localFile?.childImageSharp?.gatsbyImageData}
         />
       )}
     </main>

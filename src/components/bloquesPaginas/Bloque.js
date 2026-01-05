@@ -4,7 +4,7 @@ import FranjaAzul from "../FranjaAzul";
 import Titulo from "../Titulo";
 
 const Bloque = ({ children, datosBloque, sinBarrita=false }) => {
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
+  const STRAPI_URL =  process.env.STRAPI_API_URL;
 
   console.log("Datos del bloque:", datosBloque)
   

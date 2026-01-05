@@ -6,16 +6,13 @@ import useNoticias from "../../hooks/use-noticia";
 import FranjaAzul from "../../components/FranjaAzul";
 import FotoDefaultNoticias from '../../images/noticias.png'
 
-export default function PaginasContenido(props) 
+export default function PaginasContenido(props)
 {
-
-    const STRAPI_URL = process.env.STRAPI_API_URL;
-
     const slug= props.pageContext.slug
     const noticia= useNoticias(slug)
 
   return (
-    <PaginaInterior banner={bannerNoticias} 
+    <PaginaInterior fallback={bannerNoticias}
                     titulo="Noticias y Proyectos Destacados"
     breadcrum={[{ label: "Home", link: "/" }, {label:"Noticias y Proyectos Destacados", link:"/noticias"}, { label: noticia.titulo, link: "/" }]}> 
         <h1 className="text-lg text-bold uppercase font-bold">{noticia.titulo}</h1>

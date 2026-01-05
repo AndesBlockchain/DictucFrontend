@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import PaginaInterior from "../../components/PaginaInterior";
 import BannerVerificarInforme from "../../images/BannerVerificarInforme.webp"
-import FranjaAzul from "../../components/FranjaAzul";
 import Noticias from "../../components/Noticias";
 import useHomeNoticias from "../../hooks/use-home-noticias";
 
@@ -47,8 +46,8 @@ import useHomeNoticias from "../../hooks/use-home-noticias";
   }
 
   return (
-    <PaginaInterior banner={BannerVerificarInforme}
-                    titulo="Verifica un Certificado" 
+    <PaginaInterior fallback={BannerVerificarInforme}
+                    titulo="Verifica un Certificado"
                     breadcrum={[{ label: "Home", link: "/" }, { label: "Verifica", link: "/noticias" }]}> 
     <div className="pl-12 pr-12 pt-12">
 

@@ -1,21 +1,14 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import StrapiImage from "../StrapiImage";
 
 const ItemCarrusel =({index, foto}) => {
   return(
     <div id={"item"+index} className="carousel-item w-full">
-      {foto?.localFile?.childImageSharp?.gatsbyImageData ? (
-        <GatsbyImage 
-          image={foto.localFile.childImageSharp.gatsbyImageData}
-          alt=""
-          className="w-full"
-        />
-      ) : foto?.url ? (
-        <img
-          src={foto.url}
-          className="w-full"
-          alt="" />
-      ) : null}
+      <StrapiImage
+        imagen={foto}
+        alt=""
+        className="w-full"
+      />
     </div>
   )
 }

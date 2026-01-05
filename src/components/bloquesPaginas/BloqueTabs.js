@@ -4,7 +4,7 @@ import Bloque from "./Bloque";
 import CallToActionGroup from "../CallToActionGroup";
 
 const BloqueTabs = ({ datosBloque }) => {
-console.log("tabs",datosBloque)
+
   // Ejemplo de datos para las tabs
   const tabsData = datosBloque?.Tabs || [];
 

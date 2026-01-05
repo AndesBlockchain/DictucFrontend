@@ -1,7 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { GatsbyImage } from "gatsby-plugin-image";
-import Bloque from "./Bloque";
+import StrapiImage from "../StrapiImage";
 import DegradeBase from "../DegradeBase";
 
 const BloqueHero = ({ datosBloque }) => {
@@ -11,8 +10,6 @@ const colorLetra = datosBloque.Texto?.colorTexto?.Codigo || "black";
 const posicion_foto= datosBloque.posicion_foto
 const margenSuperior= datosBloque.Bloque.MargenSuperior
 const margenInferior= datosBloque.Bloque.MargenInferior
-
-console.log("bloque hero",datosBloque)
 
 // Clases CSS usando clsx
 const tituloClasses = clsx(
@@ -46,15 +43,13 @@ const contenedorPrincipalClasses = clsx(
   // Definir el contenido de los divs
   const contenidoImagen = (
     <div className={imagenContainerClasses}>
-      {datosBloque.foto?.localFile?.childImageSharp?.gatsbyImageData ? (
-        <GatsbyImage 
-          image={datosBloque.foto.localFile.childImageSharp.gatsbyImageData}
-          alt=""
-          className={imagenClasses}
-        />
-      ) : datosBloque.foto?.formats?.medium?.url ? (
-        <img className={imagenClasses} src={datosBloque.foto.formats.medium.url} alt="" />
-      ) : null}
+      <StrapiImage
+        imagen={datosBloque.foto}
+        gatsbyImageData={datosBloque.foto?.localFile?.childImageSharp?.gatsbyImageData}
+        fallback={datosBloque.foto?.formats?.medium?.url || datosBloque.foto?.url}
+        alt=""
+        className={imagenClasses}
+      />
     </div>
   );
 

@@ -22,8 +22,6 @@ export default function HomeTipoServicio(props)
     busqueda: ''
   })
 
-  const STRAPI_URL = process.env.STRAPI_API_URL;
-
   const [serviciosVisibles,setServiciosVisibles]=useState(servicios)
 
 
@@ -83,19 +81,12 @@ export default function HomeTipoServicio(props)
     setFiltros(nuevosFiltros);
   }
 
-  const obtenerBanner = () => {
-    if (tipoServicio?.BannerBuscadorServicios === null || tipoServicio?.BannerBuscadorServicios === undefined) {
-      return bannerLaboratorios;
-    }
-    return STRAPI_URL + tipoServicio.BannerBuscadorServicios.url;
-  }
-
-  const banner = obtenerBanner();
-
-
-
   return (
-    <PaginaInterior banner={banner} titulo={tipoServicio.nombre} breadcrum={[{ label: "Home", link: "/" }, { label: tipoServicio.nombre, link: "/" + slug }]}> 
+    <PaginaInterior
+      banner={tipoServicio?.BannerBuscadorServicios}
+      fallback={bannerLaboratorios}
+      titulo={tipoServicio.nombre}
+      breadcrum={[{ label: "Home", link: "/" }, { label: tipoServicio.nombre, link: "/" + slug }]}> 
         <div className="mb-4">
         <div className="flex flex-row">
         <FiltroServicios tiposDeServicioVisibles={false} onFiltrosChange={handleFiltrosChange} filtroTipoServicio={slug} />

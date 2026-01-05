@@ -5,8 +5,7 @@ import Titulo from "./Titulo"
 import FotoDefaultNoticias from '../images/noticias.png'
 
 const Noticias = ({ noticias, titulo, linkFiltroNoticias=false }) => {
-  
-  console.log(noticias)
+
   return(
   <div id="noticias" className="mt-8">
     <FranjaAzul />
@@ -16,8 +15,9 @@ const Noticias = ({ noticias, titulo, linkFiltroNoticias=false }) => {
         <CardNoticia className="border"
           key={noticia.id || noticia.slug}
           titulo={noticia.titulo}
+          imagen={noticia.foto}
           gatsbyImageData={noticia.foto?.localFile?.childImageSharp?.gatsbyImageData}
-          foto={noticia.foto?.localFile?.childImageSharp?.gatsbyImageData ? null : (noticia.foto?.url ? noticia.foto.url : (noticia.url_foto || FotoDefaultNoticias))}
+          fallback={noticia.url_foto || FotoDefaultNoticias}
           fecha={noticia.fecha}
           bajada={noticia.cuerpo.data.cuerpo}
           slug={noticia.slug}

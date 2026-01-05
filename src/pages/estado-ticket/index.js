@@ -47,8 +47,8 @@ export default function EstadoTicketPage() {
   }
 
   return (
-    <PaginaInterior banner={BannerNoticias}
-                    titulo="Estado Ticket" 
+    <PaginaInterior fallback={BannerNoticias}
+                    titulo="Estado Ticket"
                     breadcrum={[{ label: "Home", link: "/" }, { label: "Estado de Ticket", link: "/noticias" }]}> 
     <div>
       <fieldset className="fieldset border-base-300 rounded-box w-xs border p-4 mb-8">

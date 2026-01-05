@@ -5,7 +5,7 @@ import logo_gbc from "../images/logo_gbc.webp"
 
 const FooterSuperior = () => {
   
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
+  const STRAPI_URL = process.env.STRAPI_API_URL;
 
   const data = useStaticQuery(graphql`
     query {
