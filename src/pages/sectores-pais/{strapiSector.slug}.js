@@ -85,7 +85,7 @@ export default function HomeServicios(props)
 
   return (
     <>
-      <PaginaInterior banner={bannerLaboratorio} titulo={sector.nombre} breadcrum={[{ label: "Home", link: "/" }, { label: sector.nombre, link: "/" + slug }]}> 
+      <PaginaInterior fallback={bannerLaboratorio} titulo={sector.nombre} breadcrum={[{ label: "Home", link: "/" }, { label: sector.nombre, link: "/" + slug }]}> 
         <div className="mb-4">
    
         <div className="flex flex-row">
