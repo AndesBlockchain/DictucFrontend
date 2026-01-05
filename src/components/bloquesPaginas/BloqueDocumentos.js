@@ -1,12 +1,11 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Bloque from "./Bloque";
 
 
 const BloqueDocumentos = ({datosBloque}) => {
 
 
-    const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
- 
 console.log(datosBloque)
 
   const documentosSorted = datosBloque.etiqueta_documentos[0].documentos.sort((a, b) => a.sortOrder - b.sortOrder);
@@ -18,7 +17,14 @@ console.log(documentosSorted)
                 <div className="flex flex-col justify-center items-center w-96">
                     <div className="avatar">
                         <div className="w-24 rounded">
-                            <img src={STRAPI_URL + documento.Foto.url} alt={documento.Titulo}/>
+                            {documento.Foto?.localFile?.childImageSharp?.gatsbyImageData ? (
+                              <GatsbyImage 
+                                image={documento.Foto.localFile.childImageSharp.gatsbyImageData}
+                                alt={documento.Titulo}
+                              />
+                            ) : documento.Foto?.url ? (
+                              <img src={documento.Foto.url} alt={documento.Titulo}/>
+                            ) : null}
                         </div>
                     </div> 
                     <div className="text-left">{documento.Titulo}</div>

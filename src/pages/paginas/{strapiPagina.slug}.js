@@ -14,11 +14,11 @@ export default function PaginasContenido({pageContext,data}) {
 
   const slug = pageContext.slug;
   const pagina = data.allStrapiPagina.nodes[0]
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
 
   return (
     <PaginaInterior
-      banner={STRAPI_URL + pagina.Banner.url}
+      gatsbyImageData={pagina.Banner?.localFile?.childImageSharp?.gatsbyImageData}
+      banner={pagina.Banner?.localFile?.childImageSharp?.gatsbyImageData ? null : pagina.Banner?.url}
       titulo = {pagina.titulo}
       titulo_visible={pagina.TituloVisible}
       color_titulo= {pagina.color_titulo.Codigo}
@@ -80,6 +80,11 @@ export const PAGE_QUERY = graphql`
         }
         Banner {
           url
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
+          }
         }
         Bloques {
 
@@ -114,6 +119,11 @@ export const PAGE_QUERY = graphql`
                 formats {
                   medium {
                     url
+                  }
+                }
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                   }
                 }
               }
@@ -162,6 +172,11 @@ export const PAGE_QUERY = graphql`
               formats {
                 medium {
                   url
+                }
+              }
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
             }
@@ -294,6 +309,11 @@ export const PAGE_QUERY = graphql`
               Texto
               Foto {
                 url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  }
+                }
               }
             }
           }
@@ -354,6 +374,11 @@ export const PAGE_QUERY = graphql`
               }
               Imagen {
                 url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  }
+                }
               }
               Texto {
                 data {

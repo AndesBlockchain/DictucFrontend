@@ -14,6 +14,11 @@ const usePagina = (slug) => {
       }
       Banner {
         url
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
       }
       Bloques {
 
@@ -88,6 +93,11 @@ const usePagina = (slug) => {
                   url
                 }
               }
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
             Texto {
               data {
@@ -136,6 +146,11 @@ const usePagina = (slug) => {
             formats {
               medium {
                 url
+              }
+            }
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
               }
             }
           }
@@ -294,6 +309,11 @@ const usePagina = (slug) => {
             Texto
             Foto {
               url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
           }
         }
@@ -366,6 +386,11 @@ const usePagina = (slug) => {
             }
             Imagen {
               url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
             Texto {
               data {

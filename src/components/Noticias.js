@@ -14,9 +14,10 @@ const Noticias = ({ noticias, titulo, linkFiltroNoticias=false }) => {
     <div id="items-noticias" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center mt-12 pl-16 pr-16 gap-y-12">
       {noticias.nodes.map(noticia => (
         <CardNoticia className="border"
-          key={noticia}
+          key={noticia.id || noticia.slug}
           titulo={noticia.titulo}
-          foto={noticia.foto?.url ? `${process.env.STRAPI_API_URL}${noticia.foto.url}` : (noticia.url_foto || FotoDefaultNoticias)}
+          gatsbyImageData={noticia.foto?.localFile?.childImageSharp?.gatsbyImageData}
+          foto={noticia.foto?.localFile?.childImageSharp?.gatsbyImageData ? null : (noticia.foto?.url ? noticia.foto.url : (noticia.url_foto || FotoDefaultNoticias))}
           fecha={noticia.fecha}
           bajada={noticia.cuerpo.data.cuerpo}
           slug={noticia.slug}

@@ -1,7 +1,7 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-
-const BannerInterior = ({ imagen, alt = "Banner" , titulo="", titulo_visible=true, color_titulo="azul-dictuc"}) => {
+const BannerInterior = ({ imagen, gatsbyImageData, alt = "Banner" , titulo="", titulo_visible=true, color_titulo="azul-dictuc"}) => {
   
   console.log("color_titulo",color_titulo)
   return (
@@ -11,12 +11,20 @@ const BannerInterior = ({ imagen, alt = "Banner" , titulo="", titulo_visible=tru
         {titulo}
       </div>
     )}
-      <img
-        src={imagen}
-        alt={alt}
-        className="w-full h-auto object-contain"
-        style={{ display: 'block' }}
-      />
+      {gatsbyImageData ? (
+        <GatsbyImage 
+          image={gatsbyImageData}
+          alt={alt}
+          className="w-full h-auto object-contain"
+        />
+      ) : imagen ? (
+        <img
+          src={imagen}
+          alt={alt}
+          className="w-full h-auto object-contain"
+          style={{ display: 'block' }}
+        />
+      ) : null}
     </div>
     
   );

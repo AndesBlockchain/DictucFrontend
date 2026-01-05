@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import BarraFondoGris from "./BarraFondoGris";
 
 const Carrusel = () => {
-
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
 
     const data = useStaticQuery(graphql`
 query carruselQuery {
@@ -18,6 +17,15 @@ query carruselQuery {
         height
         width
         url
+        localFile {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1920
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
     }
   }
@@ -31,6 +39,8 @@ query carruselQuery {
           fraseSuperior: item.FraseSuperior || "",
           fraseInferior: item.FraseInferior || "",
           frasesVisibles: !item.OcultarFrases ? true : false,
+          gatsbyImageData: imagen.localFile?.childImageSharp?.gatsbyImageData || null,
+          // Fallback para desarrollo si la imagen no se ha procesado aún
           url: imagen.url || "",
           alto: imagen.height || 0,
           ancho: imagen.width || 0,
@@ -59,12 +69,21 @@ query carruselQuery {
                 <button onClick={anteriorImagen} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 transition-all z-10">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <img 
-                  src={STRAPI_URL + carruselData[indiceCarrusel].url}  
-                  className="select-none"
-                  draggable="false"
-                  alt=""
-                />
+                {carruselData[indiceCarrusel].gatsbyImageData ? (
+                  <GatsbyImage 
+                    image={carruselData[indiceCarrusel].gatsbyImageData}
+                    alt=""
+                    className="select-none"
+                    draggable={false}
+                  />
+                ) : (
+                  <img 
+                    src={carruselData[indiceCarrusel].url}  
+                    className="select-none"
+                    draggable="false"
+                    alt=""
+                  />
+                )}
                 <button onClick={siguienteImagen} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 transition-all z-10">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>

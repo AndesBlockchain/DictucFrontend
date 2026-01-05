@@ -1,4 +1,5 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Bloque from "./Bloque";
 
 
@@ -6,8 +7,6 @@ const BloquePersonas = ({datosBloque}) => {
 
 
 
-    const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
- 
     const personasSorted = datosBloque.etiqueta_persona.personas.sort((a, b) => a.sortOrder - b.sortOrder);
     console.log(personasSorted)
     return (
@@ -17,13 +16,29 @@ const BloquePersonas = ({datosBloque}) => {
                 <div className="flex flex-row justify-center items-center w-96">
                     <div className="avatar">
                         <div className="w-24 border border-azul-dictuc rounded-full">
-                            {persona.Foto?.formats?.thumbnail?.url && (
+                            {persona.Foto?.localFile?.childImageSharp?.gatsbyImageData ? (
                               persona.Link ? (
                                 <a href={persona.Link} target="_blank" rel="noopener noreferrer">
-                                  <img src={STRAPI_URL + persona.Foto.formats.thumbnail.url} alt={persona.Nombre} />
+                                  <GatsbyImage 
+                                    image={persona.Foto.localFile.childImageSharp.gatsbyImageData}
+                                    alt={persona.Nombre}
+                                    className="rounded-full"
+                                  />
                                 </a>
                               ) : (
-                                <img src={STRAPI_URL + persona.Foto.formats.thumbnail.url} alt={persona.Nombre} />
+                                <GatsbyImage 
+                                  image={persona.Foto.localFile.childImageSharp.gatsbyImageData}
+                                  alt={persona.Nombre}
+                                  className="rounded-full"
+                                />
+                              )
+                            ) : persona.Foto?.formats?.thumbnail?.url && (
+                              persona.Link ? (
+                                <a href={persona.Link} target="_blank" rel="noopener noreferrer">
+                                  <img src={persona.Foto.formats.thumbnail.url} alt={persona.Nombre} />
+                                </a>
+                              ) : (
+                                <img src={persona.Foto.formats.thumbnail.url} alt={persona.Nombre} />
                               )
                             )}
                         </div>

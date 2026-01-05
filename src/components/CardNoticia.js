@@ -1,4 +1,5 @@
 import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export function AcortarNoticia(texto,largo=100) {
   if (!texto || texto.length <= largo) return texto;
@@ -9,18 +10,22 @@ export function AcortarNoticia(texto,largo=100) {
 }
 
 
-const CardNoticia = ({ titulo, foto, fecha, bajada, slug, mostrarFecha = true }) => {
-
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
-
-
+const CardNoticia = ({ titulo, foto, gatsbyImageData, fecha, bajada, slug, mostrarFecha = true }) => {
   return(
   <div className="relative flex flex-col h-full w-72 bg-white rounded-xl shadow-lg overflow-hidden mt-4">
-    <img
-      src={ foto}
-      alt={titulo}
-      className="w-full h-44 object-cover"
-    />
+    {gatsbyImageData ? (
+      <GatsbyImage 
+        image={gatsbyImageData}
+        alt={titulo}
+        className="w-full h-44 object-cover"
+      />
+    ) : foto ? (
+      <img
+        src={foto}
+        alt={titulo}
+        className="w-full h-44 object-cover"
+      />
+    ) : null}
     <div className="p-4">
       <h3 className="text-base font-semibold mb-2">{titulo}</h3>
       <div className="text-gray-600 text-xs leading-relaxed mb-3" dangerouslySetInnerHTML={{__html:AcortarNoticia(bajada)}} />

@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Bloque from "./Bloque";
 import DegradeBase from "../DegradeBase";
 
@@ -7,7 +8,6 @@ const BloqueHero = ({ datosBloque }) => {
 
 const letra = datosBloque.Texto?.tipografia?.class || "";
 const colorLetra = datosBloque.Texto?.colorTexto?.Codigo || "black";
-const STRAPI_API_URL = process.env.STRAPI_API_URL
 const posicion_foto= datosBloque.posicion_foto
 const margenSuperior= datosBloque.Bloque.MargenSuperior
 const margenInferior= datosBloque.Bloque.MargenInferior
@@ -26,11 +26,11 @@ const imagenContainerClasses = clsx(
 );
 
 const imagenClasses = clsx(
-  "rounded-xl w-[640px]"
+  "rounded-xl w-[350px]"
 );
 
 const textoContainerClasses = clsx(
-  "flex-col w-3/5 pt-12 pl-8 text-sm text-justify pr-4"
+  "flex-col w-3/5 content-center pl-8 text-sm text-justify pr-4 h-auto"
 );
 
 const contenidoFlexClasses = clsx(
@@ -46,7 +46,15 @@ const contenedorPrincipalClasses = clsx(
   // Definir el contenido de los divs
   const contenidoImagen = (
     <div className={imagenContainerClasses}>
-      <img className={imagenClasses} src={STRAPI_API_URL + datosBloque.foto.formats.medium.url} />
+      {datosBloque.foto?.localFile?.childImageSharp?.gatsbyImageData ? (
+        <GatsbyImage 
+          image={datosBloque.foto.localFile.childImageSharp.gatsbyImageData}
+          alt=""
+          className={imagenClasses}
+        />
+      ) : datosBloque.foto?.formats?.medium?.url ? (
+        <img className={imagenClasses} src={datosBloque.foto.formats.medium.url} alt="" />
+      ) : null}
     </div>
   );
 

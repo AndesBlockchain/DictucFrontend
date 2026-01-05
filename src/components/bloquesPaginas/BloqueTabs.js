@@ -1,9 +1,9 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Bloque from "./Bloque";
 import CallToActionGroup from "../CallToActionGroup";
 
 const BloqueTabs = ({ datosBloque }) => {
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
 console.log("tabs",datosBloque)
   // Ejemplo de datos para las tabs
   const tabsData = datosBloque?.Tabs || [];
@@ -28,7 +28,15 @@ console.log("tabs",datosBloque)
                 <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
                   <div className="flex flex-row items-start gap-2 mb-4">
                     <div className="flex flex-item w-2/5 pl-8 pr-8">
-                      <img className="rounded-xl" src={STRAPI_URL + tab.Foto?.formats.medium.url || ""} />
+                      {tab.Foto?.localFile?.childImageSharp?.gatsbyImageData ? (
+                        <GatsbyImage 
+                          image={tab.Foto.localFile.childImageSharp.gatsbyImageData}
+                          alt=""
+                          className="rounded-xl"
+                        />
+                      ) : tab.Foto?.formats?.medium?.url ? (
+                        <img className="rounded-xl" src={tab.Foto.formats.medium.url} alt="" />
+                      ) : null}
                     </div>
                     <div className="mt-auto mb-auto w-3/5 pl-8 text-left text-sm" dangerouslySetInnerHTML={{__html: tab.Texto?.data.Texto || ""}} />
                    

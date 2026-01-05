@@ -12,6 +12,11 @@ const useSectoresPais = () => {
             url
             width
             height
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 280, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              }
+            }
           }
         }
         totalCount

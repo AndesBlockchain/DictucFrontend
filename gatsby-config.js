@@ -12,7 +12,11 @@ module.exports = {
     title: `Dictuc`,
     siteUrl: process.env.SITE_URL
   },
-  plugins: ["gatsby-plugin-postcss",
+  plugins: [
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-image",
+    "gatsby-plugin-postcss",
     "gatsby-plugin-sitemap",
     {
       resolve:"gatsby-omni-font-loader",

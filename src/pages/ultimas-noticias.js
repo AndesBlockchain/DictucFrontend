@@ -40,6 +40,11 @@ export const PAGE_QUERY = graphql`
           }
        foto {
          url
+         localFile {
+           childImageSharp {
+             gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+           }
+         }
        }
      }
    }

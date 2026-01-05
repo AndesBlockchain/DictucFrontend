@@ -24,7 +24,7 @@ const SectoresPais=(titulo)=>{
     }
 
     return(
-        <div id="sectores" className="relative z-10 mt-4 lg:-mt-8 p-2 pb-4 pt-5 max-w-4xl mx-auto bg-white rounded-3xl shadow-lg">
+        <div id="sectores" className="relative z-10 mt-4 lg:-mt-8 p-2 pb-4 pt-5 max-w-4xl mx-auto bg-emerald rounded-3xl shadow-lg">
         <FranjaAzul />
         <div className="text-center mb-4 mt-4 font-semibold uppercase">
         Encuentra soluciones y servicios según tu tipo de <span className="text-azul-dictuc">industria</span>
@@ -32,19 +32,34 @@ const SectoresPais=(titulo)=>{
         {data.totalCount<=10 ?
             <div className={"flex flew-row justify-center" + data.totalCount + " gap-2"}>
                 {data.nodes.map(item=>
-                    <ItemSectoresPais url={"/sectores-pais/" + item.slug} url_icono={item.icono[0].url} />
+                    <ItemSectoresPais 
+                      key={item.slug}
+                      url={"/sectores-pais/" + item.slug} 
+                      icono={item.icono}
+                      url_icono={item.icono?.[0]?.url}
+                    />
                 )}
             </div>
             :
             <div>
                 <div className="flex flex-row justify-center gap-2">
                     {data.nodes.slice(0,gridClassTop(data.totalCount)).map(item=>
-                        <ItemSectoresPais url={item.icono[0].url} />
+                        <ItemSectoresPais 
+                          key={item.slug}
+                          url={"/sectores-pais/" + item.slug}
+                          icono={item.icono}
+                          url_icono={item.icono?.[0]?.url}
+                        />
                     )}
                 </div>
                 <div className="flex flex-row gap-2 justify-center">
                     {data.nodes.slice(gridClassBottom(data.totalCount)+1).map(item=>
-                        <ItemSectoresPais url={item.icono[0].url} />
+                        <ItemSectoresPais 
+                          key={item.slug}
+                          url={"/sectores-pais/" + item.slug}
+                          icono={item.icono}
+                          url_icono={item.icono?.[0]?.url}
+                        />
                     )}
                 </div>
             </div>

@@ -13,6 +13,11 @@ export const PAGE_QUERY = graphql`
         }
         Banner {
           url
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
+          }
         }
         Bloques {
           ... on STRAPI__COMPONENT_BLOQUES_BLOQUE_TIPOSDE_SERVICIO {
@@ -41,6 +46,11 @@ export const PAGE_QUERY = graphql`
                 formats {
                   medium {
                     url
+                  }
+                }
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                   }
                 }
               }
@@ -89,6 +99,11 @@ export const PAGE_QUERY = graphql`
               formats {
                 medium {
                   url
+                }
+              }
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
             }
@@ -221,6 +236,11 @@ export const PAGE_QUERY = graphql`
               Texto
               Foto {
                 url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  }
+                }
               }
             }
           }
@@ -281,6 +301,11 @@ export const PAGE_QUERY = graphql`
               }
               Imagen {
                 url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  }
+                }
               }
               Texto {
                 data {

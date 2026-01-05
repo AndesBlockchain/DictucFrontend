@@ -5,7 +5,6 @@ import CardServicio from "../CardServicio";
 const BloqueTarjetas = ({ datosBloque }) => {
 
 
-  const STRAPI_URL = process.env.NODE_ENV === 'development' ? process.env.STRAPI_API_URL : '';
   const tarjetasPorFila = datosBloque.TarjetasPorFila
 
   console.log("Bloque Tarjetas", datosBloque)
@@ -26,7 +25,7 @@ const BloqueTarjetas = ({ datosBloque }) => {
                   titulo={tarjeta.Titulo || ""} 
                   color_fondo={tarjeta?.color_fondo?.Codigo || "white"}
                   color_texto={tarjeta?.color_texto?.Codigo || "black"}
-                  icono={tarjeta.Imagen ? STRAPI_URL + tarjeta.Imagen.url : ""} 
+                  imagen={tarjeta.Imagen} 
                   contenido={tarjeta.Texto?.data?.Texto || ""} 
                   callToAction={tarjeta.CallToAction}
                 />

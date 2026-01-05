@@ -15,6 +15,11 @@ const usePaginas = () => {
       }
       Banner {
         url
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
       }
       Bloques {
 
@@ -43,6 +48,11 @@ const usePaginas = () => {
               formats {
                 medium {
                   url
+                }
+              }
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
             }
@@ -91,6 +101,11 @@ const usePaginas = () => {
             formats {
               medium {
                 url
+              }
+            }
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
               }
             }
           }
@@ -222,6 +237,11 @@ const usePaginas = () => {
             Texto
             Foto {
               url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
           }
         }
@@ -281,6 +301,11 @@ const usePaginas = () => {
             }
             Imagen {
               url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
             }
             Texto {
               data {
