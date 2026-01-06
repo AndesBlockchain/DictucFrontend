@@ -61,6 +61,14 @@ export default function PaginasContenido({pageContext,data}) {
   );
   }
 
+export async function config() {
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}
+
 export const Head = (props) => {
   return (
       <title>Dictuc</title>

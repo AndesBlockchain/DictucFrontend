@@ -119,3 +119,11 @@ export default function HomeServicios(props)
     </>
   );
 }
+
+export async function config() {
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}
