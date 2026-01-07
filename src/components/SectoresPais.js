@@ -23,7 +23,7 @@ const SectoresPais=(titulo)=>{
     }
 
     return(
-        <div id="sectores" className="relative z-10 mt-4 lg:-mt-8 p-2 pb-4 pt-5 max-w-4xl mx-auto bg-emerald rounded-3xl shadow-lg">
+        <div id="sectores" className="relative mt-4 bg-white lg:-mt-8 p-2 pb-4 pt-5 max-w-4xl mx-auto rounded-3xl shadow-lg">
         <FranjaAzul />
         <div className="text-center mb-4 mt-4 font-semibold uppercase">
         Encuentra soluciones y servicios según tu tipo de <span className="text-azul-dictuc">industria</span>

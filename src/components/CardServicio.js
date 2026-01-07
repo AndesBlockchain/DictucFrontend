@@ -3,7 +3,7 @@ import clsx from "clsx"
 import CallToAction from "./CallToAction";
 import StrapiImage from "./StrapiImage";
 
-const CardServicio = ({ titulo, icono, imagen, contenido, callToAction=false, color_fondo, color_texto="black" }) => {
+const CardServicio = ({ titulo, icono, imagen, contenido, callToAction=false, color_fondo="white", color_texto="black" }) => {
 
   // Función para detectar si el contenido es una lista
   const esLista = (html) => {

@@ -40,7 +40,7 @@ module.exports = {
     options: {
       apiURL: process.env.STRAPI_API_URL,
       accessToken: process.env.STRAPI_TOKEN,
-      preview: false,
+      preview: true,
       collectionTypes: [
         "servicio",
         "menu-superior",
@@ -56,7 +56,8 @@ module.exports = {
         {
           singularName: "pagina",
           queryParams: {
-            populate: "all"
+            populate: "all",
+            publicationState: "preview"
           }
         }
       ],

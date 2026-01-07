@@ -117,3 +117,11 @@ export default function HomeTipoServicio(props)
     </PaginaInterior>
   );
 }
+
+export async function config() {
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}
