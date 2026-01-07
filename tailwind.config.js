@@ -67,6 +67,7 @@ module.exports = {
     'text-fucsia-sostenibilidad/50',
     'text-fucsia-sostenibilidad/75',
     'bg-fucsia-sostenibilidad',
+    "table",
   ],
   theme: {
     extend: {
