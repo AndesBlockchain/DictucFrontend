@@ -9,6 +9,7 @@ const ModalAgente = ({ onClose, pregunta }) => {
   const [isActionGetQuoteAvailable, setIsActionGetQuoteAvailable]= useState(false);
   const [serviceLink,setServiceLink]= useState("");
 
+
   // Resetear variables cuando se abre el modal
   useEffect(() => {
     setPuntos("")
@@ -25,7 +26,7 @@ const ModalAgente = ({ onClose, pregunta }) => {
     console.log("pregunta",pregunta)
     const llamarAPI = async () => {
       try {
-        const response = await fetch('http://localhost:1337/api/chatgpt', {
+        const response = await fetch(process.env.STRAPI_API_URL + '/api/chatgpt', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

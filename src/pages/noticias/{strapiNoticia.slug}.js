@@ -4,6 +4,7 @@ import PaginaInterior from "../../components/PaginaInterior";
 import bannerNoticias from "../../images/BannerMicrofonos.webp";
 import useNoticias from "../../hooks/use-noticia";
 import FranjaAzul from "../../components/FranjaAzul";
+import StrapiImage from "../../components/StrapiImage";
 import FotoDefaultNoticias from '../../images/noticias.png'
 
 export default function PaginasContenido(props)
@@ -24,8 +25,10 @@ export default function PaginasContenido(props)
           <div dangerouslySetInnerHTML={{__html: noticia.cuerpo.data.cuerpo}}></div>
          </div>
          <div className="flex justify-center mb-8">
-           <img 
-             src={FotoDefaultNoticias} 
+           <StrapiImage
+             imagen={noticia.foto}
+             gatsbyImageData={noticia.foto?.localFile?.childImageSharp?.gatsbyImageData}
+             fallback={noticia.url_foto || FotoDefaultNoticias}
              className="max-w-[250px] max-h-[250px] md:max-w-[350px] md:max-h-[350px] lg:max-w-[1/3] lg:max-h-[1/3] w-full h-auto object-contain rounded-lg"
              alt={noticia.titulo || 'Imagen de la noticia'}
            />

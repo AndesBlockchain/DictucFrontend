@@ -13,6 +13,11 @@ const useNoticia = (slug) => {
       }
       foto {
         url
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP])
+          }
+        }
       }
       fecha
       cuerpo {
