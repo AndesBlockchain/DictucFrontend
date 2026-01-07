@@ -15,7 +15,7 @@ export default function Servicio(props) {
   const servicio = servicios?.nodes?.find(s => s.slug === slug);
 
   return (
-    <PaginaInterior fallback={bannerLaboratorio} banner={bannerLaboratorio} titulo="Descripción del Servicio" breadcrum={[{ label: "Home", link: "/" }, { label: "Servicios", link: "/" }, {label: servicio.nombre}]}> 
+    <PaginaInterior fallback={bannerLaboratorio} titulo="Descripción del Servicio" breadcrum={[{ label: "Home", link: "/" }, { label: "Servicios", link: "/" }, {label: servicio.nombre}]}> 
     <h1 className="text-xl font-bold uppercase">{servicio.nombre}</h1>
     <div className="text-sm text-gray">{servicio.tipo_de_servicio.nombre} | {servicio.unidad.nombre}</div>
     <div className="mb-8">

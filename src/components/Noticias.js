@@ -26,7 +26,7 @@ const Noticias = ({ noticias, titulo, linkFiltroNoticias=false }) => {
     </div>
     {!linkFiltroNoticias && (
       <div className="flex justify-center items-center mt-8">
-        <a href="/noticias" className="bg-blue-600 text-white px-4 py-2 m-4 text-xs rounded-full hover:bg-blue-700 transition-all">Ver más noticias</a>
+        <a href="/ultimas-noticias" className="bg-blue-600 text-white px-4 py-2 m-4 text-xs rounded-full hover:bg-blue-700 transition-all">Ver más noticias</a>
       </div>
     )}
     {linkFiltroNoticias && (
