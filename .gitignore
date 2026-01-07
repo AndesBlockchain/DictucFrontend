@@ -4,3 +4,4 @@ public
 .env
 *.code-workspace
 yarn.lock
+.env.*
