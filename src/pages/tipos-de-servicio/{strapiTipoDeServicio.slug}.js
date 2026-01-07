@@ -79,10 +79,11 @@ export default function HomeTipoServicio(props)
     };
     setFiltros(nuevosFiltros);
   }
+  console.log("tipo",tipoServicio)
 
   return (
     <PaginaInterior
-      fallback={bannerLaboratorios}
+      fallback={process.env.STRAPI_API_URL + tipoServicio?.BannerBuscadorServicios?.url}
       titulo={tipoServicio.nombre}
       breadcrum={[{ label: "Home", link: "/" }, { label: tipoServicio.nombre, link: "/" + slug }]}> 
         <div className="mb-4">
