@@ -83,7 +83,6 @@ export default function HomeTipoServicio(props)
 
   return (
     <PaginaInterior
-      banner={tipoServicio?.BannerBuscadorServicios}
       fallback={bannerLaboratorios}
       titulo={tipoServicio.nombre}
       breadcrum={[{ label: "Home", link: "/" }, { label: tipoServicio.nombre, link: "/" + slug }]}> 
