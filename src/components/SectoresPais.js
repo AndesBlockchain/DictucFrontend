@@ -31,11 +31,13 @@ const SectoresPais=(titulo)=>{
         {data.totalCount<=10 ?
             <div className={"flex flew-row justify-center" + data.totalCount + " gap-2"}>
                 {data.nodes.map(item=>
-                    <ItemSectoresPais 
+                    <ItemSectoresPais
                       key={item.slug}
-                      url={"/sectores-pais/" + item.slug} 
+                      url={"/sectores-pais/" + item.slug}
                       icono={item.icono}
+                      gatsbyImageData={item.icono?.[0]?.localFile?.childImageSharp?.gatsbyImageData}
                       url_icono={item.icono?.[0]?.url}
+                      nombre={item.nombre}
                     />
                 )}
             </div>
@@ -43,21 +45,25 @@ const SectoresPais=(titulo)=>{
             <div>
                 <div className="flex flex-row justify-center gap-2">
                     {data.nodes.slice(0,gridClassTop(data.totalCount)).map(item=>
-                        <ItemSectoresPais 
+                        <ItemSectoresPais
                           key={item.slug}
                           url={"/sectores-pais/" + item.slug}
                           icono={item.icono}
+                          gatsbyImageData={item.icono?.[0]?.localFile?.childImageSharp?.gatsbyImageData}
                           url_icono={item.icono?.[0]?.url}
+                          nombre={item.nombre}
                         />
                     )}
                 </div>
                 <div className="flex flex-row gap-2 justify-center">
                     {data.nodes.slice(gridClassBottom(data.totalCount)+1).map(item=>
-                        <ItemSectoresPais 
+                        <ItemSectoresPais
                           key={item.slug}
                           url={"/sectores-pais/" + item.slug}
                           icono={item.icono}
+                          gatsbyImageData={item.icono?.[0]?.localFile?.childImageSharp?.gatsbyImageData}
                           url_icono={item.icono?.[0]?.url}
+                          nombre={item.nombre}
                         />
                     )}
                 </div>

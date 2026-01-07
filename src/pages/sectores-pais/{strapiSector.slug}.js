@@ -7,7 +7,7 @@ import FilaServicios from "../../components/FilaServicios";
 import FiltroServicios from "../../components/FiltroServicios";
 import useSectoresPais from "../../hooks/use-sectores-pais";
 import useServicios from "../../hooks/use-servicios";
-import bannerLaboratorio from "../../images/BannerLaboratorioServicios.webp";
+import bannerLaboratorios from "../../images/BannerLaboratorioServicios.webp";
 
 
 export default function HomeServicios(props) 
@@ -85,7 +85,10 @@ export default function HomeServicios(props)
 
   return (
     <>
-      <PaginaInterior fallback={bannerLaboratorio} titulo={sector.nombre} breadcrum={[{ label: "Home", link: "/" }, { label: sector.nombre, link: "/" + slug }]}> 
+      <PaginaInterior 
+        fallback={bannerLaboratorios} 
+        titulo={sector.nombre} 
+        breadcrum={[{ label: "Home", link: "/" }, { label: sector.nombre, link: "/" + slug }]}> 
         <div className="mb-4">
    
         <div className="flex flex-row">

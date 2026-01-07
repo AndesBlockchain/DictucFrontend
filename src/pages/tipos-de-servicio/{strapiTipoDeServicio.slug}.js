@@ -77,7 +77,6 @@ export default function HomeTipoServicio(props)
       busqueda: data.busqueda || '',
       sectoresPais: data.sectoresPais && data.sectoresPais.length > 0 ? data.sectoresPais : []
     };
-    console.log('Nuevos filtros:', nuevosFiltros);
     setFiltros(nuevosFiltros);
   }
 
