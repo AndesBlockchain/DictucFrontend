@@ -9,10 +9,21 @@ import Contacto from "../../components/Contacto";
 import bannerLaboratorio from "../../images/BannerLaboratorioServicios.webp";
 
 export default function Servicio(props) {
-  
+
   const slug= props.pageContext.slug
   const servicios= useServicios();
   const servicio = servicios?.nodes?.find(s => s.slug === slug);
+
+  // Early return si no hay servicio disponible
+  if (!servicio) {
+    return (
+      <PaginaInterior fallback={bannerLaboratorio} titulo="Cargando..." breadcrum={[{ label: "Home", link: "/" }, { label: "Servicios", link: "/" }]}>
+        <div className="flex justify-center items-center h-64">
+          <p className="text-gray-500">Cargando información del servicio...</p>
+        </div>
+      </PaginaInterior>
+    );
+  }
 
   return (
     <PaginaInterior fallback={bannerLaboratorio} titulo="Descripción del Servicio" breadcrum={[{ label: "Home", link: "/" }, { label: "Servicios", link: "/" }, {label: servicio.nombre}]}> 
