@@ -7,7 +7,13 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const adapter = require("gatsby-adapter-netlify").default
+
 module.exports = {
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+    imageCDN: false,
+  }),
   siteMetadata: {
     title: `Dictuc`,
     siteUrl: process.env.SITE_URL
@@ -63,92 +69,12 @@ module.exports = {
       ],
       singleTypes: ["agente"],
       queryLimit: 1000,
-      // Configuración específica para poblar todos los campos anidados
-   /*    populate: {
-        paginas: {
-          color_titulo: {
-            populate: "*"
-          },
-          populate: {
-            Banner: {
-              populate: "*"
-            },
-            seo: {
-              populate: "*"
-            },
-            Bloques: {
-              populate: {
-                Tabs: {
-                  populate: {
-                    CallToAction: {
-                      populate: "*"
-                    }
-                  }
-                },
-
-                // Para ComponentBloquesBloqueTarjetas
-                Tarjetas: {
-                  populate: {
-                    color_fondo_bloque: {
-                      populate: "*"
-                    },
-                    color_texto: {
-                      populate: "*"
-                    },
-                    Imagen: {
-                      populate: "*"
-                    },
-                    CallToAction: {
-                      populate: "*"
-                    }
-                  }
-                },
-                // Para ComponentBloquesBloqueTexto
-                Texto: {
-                  CallToAction: {
-                    populate: "*"
-                  },
-                  populate: {
-                    colorTexto: {
-                      populate: "*"
-                    },
-                    tipografia: {
-                      populate: "*"
-                    }
-                  }
-                },
-                Personas: {
-                  populate: "*"
-                },
-                Documentos: {
-                  populate: "*"
-                },
-                // Campos comunes del Bloque
-                Bloque: {
-                  populate: {
-                    FotoFondo: {
-                      populate: "*"
-                    },
-                    colorFondoBloque: {
-                      populate: "*"
-                    },
-                    colorBarrita: {
-                      populate: "*"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      } */
     },
     },
     {
       resolve: "gatsby-plugin-sentry",
       options: {
         dsn: "https://0b93923ee789184590c8b4fd16c06e4f@o4504873002139648.ingest.us.sentry.io/4509710108524544",
-        // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
         environment: process.env.NODE_ENV,
         enabled: (() => ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
       }
