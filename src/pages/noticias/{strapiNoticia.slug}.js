@@ -1,21 +1,19 @@
-
 import React from "react";
+import { graphql } from "gatsby";
 import PaginaInterior from "../../components/PaginaInterior";
 import bannerNoticias from "../../images/BannerMicrofonos.webp";
-import useNoticias from "../../hooks/use-noticia";
 import FranjaAzul from "../../components/FranjaAzul";
 import StrapiImage from "../../components/StrapiImage";
 import FotoDefaultNoticias from '../../images/noticias.png'
 
-export default function PaginasContenido(props)
+export default function PaginasContenido({ data })
 {
-    const slug= props.pageContext.slug
-    const noticia= useNoticias(slug)
+    const noticia = data.strapiNoticia;
 
   return (
     <PaginaInterior fallback={bannerNoticias}
                     titulo="Noticias y Proyectos Destacados"
-    breadcrum={[{ label: "Home", link: "/" }, {label:"Noticias y Proyectos Destacados", link:"/noticias"}, { label: noticia.titulo, link: "/" }]}> 
+    breadcrum={[{ label: "Home", link: "/" }, {label:"Noticias y Proyectos Destacados", link:"/noticias"}, { label: noticia.titulo, link: "/" }]}>
         <h1 className="text-lg text-bold uppercase font-bold">{noticia.titulo}</h1>
         <div className="text-sm text-gray-300">{noticia.fecha}</div>
         <div className="w-min mt-2 mb-2">
@@ -38,9 +36,39 @@ export default function PaginasContenido(props)
   );
 }
 
-export async function config() {
-  // Optionally use GraphQL here
+// Page query - obtiene solo la noticia específica basada en el slug
+export const query = graphql`
+  query($slug: String!) {
+    strapiNoticia(slug: { eq: $slug }) {
+      slug
+      titulo
+      url_foto
+      galeria {
+        url
+      }
+      foto {
+        url
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 800, placeholder: BLURRED, formats: [AUTO, WEBP])
+          }
+        }
+      }
+      fecha
+      cuerpo {
+        data {
+          cuerpo
+        }
+      }
+      etiqueta_noticias {
+        documentId
+        etiqueta
+      }
+    }
+  }
+`;
 
+export async function config() {
   return ({ params }) => {
     return {
       defer: true,

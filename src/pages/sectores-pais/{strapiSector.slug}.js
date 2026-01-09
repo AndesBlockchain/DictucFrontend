@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { graphql } from "gatsby";
 import PaginaInterior from "../../components/PaginaInterior";
 import FilaServicios from "../../components/FilaServicios";
 import FiltroServicios from "../../components/FiltroServicios";
 import bannerLaboratorios from "../../images/BannerLaboratorioServicios.webp";
+import { calcularConteoPorTipo } from "../../helpers/conteo-servicios";
 
 export default function HomeServicios({ data, pageContext })
 {
@@ -18,6 +19,11 @@ export default function HomeServicios({ data, pageContext })
   })
 
   const [serviciosVisibles,setServiciosVisibles]=useState(servicios)
+
+  // Calcular conteos pre-calculados una sola vez
+  const conteoPorTipo = useMemo(() => {
+    return calcularConteoPorTipo(servicios);
+  }, [servicios]);
 
   // Función para filtrar servicios basándose en el estado filtros
   const filtrarServicios = (servicios, filtros) => {
@@ -84,7 +90,12 @@ export default function HomeServicios({ data, pageContext })
         <div className="mb-4">
 
         <div className="flex flex-row">
-        <FiltroServicios sectoresPaisVisibles={false} onFiltrosChange={handleFiltrosChange} filtroSectorPais={slug}/>
+        <FiltroServicios
+          sectoresPaisVisibles={false}
+          onFiltrosChange={handleFiltrosChange}
+          filtroSectorPais={slug}
+          conteoPorTipoProp={conteoPorTipo}
+        />
         <div className="flex-3 pl-4 pr-4">
           <div className="text-xl font-semibold mb-1 text-left">
             Servicios Encontrados ({serviciosVisibles.nodes.length})
