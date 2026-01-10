@@ -3,9 +3,6 @@ import SeparadorHorizontal from "./SeparadorHorizontal";
 import Agente from "./Agente";
 import useSectoresPais from "../hooks/use-sectores-pais";
 import useTipoDeServicio from "../hooks/use-tipo-de-servicios";
-import useServiciosBySectorPais from "../hooks/use-servicios-by-sector-pais";
-import useServiciosByTipo from "../hooks/use-servicios-by-tipo";
-import { contarServiciosPorTipo, contarServiciosPorSector } from '../hooks/use-servicios-by-tipo-and-sector';
 
 const FiltroServicios = ({
   tiposDeServicioVisibles = true,
@@ -13,7 +10,7 @@ const FiltroServicios = ({
   filtroTipoServicio="",
   filtroSectorPais="",
   onFiltrosChange,
-  // Nuevos props opcionales para conteos pre-calculados
+  // Conteos pre-calculados (requeridos para mostrar badges)
   conteoPorTipoProp = null,
   conteoPorSectorProp = null
 }) => {
@@ -26,21 +23,6 @@ const FiltroServicios = ({
       sectoresPais: [],
       busqueda: ''
     });
-
-    // Si se pasan conteos como props, usarlos; si no, calcularlos (backward compatibility)
-    let conteoPorTipo = conteoPorTipoProp;
-    let conteoPorSector = conteoPorSectorProp;
-
-    // Solo hacer las queries pesadas si NO se pasaron los conteos como props
-    if (!conteoPorTipoProp && sectoresPaisVisibles) {
-      const serviciosBySector = useServiciosBySectorPais(filtroSectorPais);
-      conteoPorTipo = contarServiciosPorTipo(serviciosBySector);
-    }
-
-    if (!conteoPorSectorProp && tiposDeServicioVisibles) {
-      const serviciosByTipo = useServiciosByTipo(filtroTipoServicio);
-      conteoPorSector = contarServiciosPorSector(serviciosByTipo);
-    }
 
     const handleFiltroTextChange = (e)=> {
       const newState = filtros
@@ -98,12 +80,12 @@ const FiltroServicios = ({
 return(
     <div className="border-1 border-x-gray-500 rounded-md text-xs p-4 flex-1">
     <div className="mb-1 font-semibold text-center font-md mb-2">Filtros de Búsqueda</div>
-    {tiposDeServicioVisibles && conteoPorTipo && (
+    {tiposDeServicioVisibles && conteoPorTipoProp && (
       <>
         <div className="font-semibold mb-1">Tipo de Servicio</div>
         <div>
         {tiposDeServicio && tiposDeServicio.nodes.map((item, index) =>
-          conteoPorTipo[item.slug] && conteoPorTipo[item.slug] > 0 ? (
+          conteoPorTipoProp[item.slug] && conteoPorTipoProp[item.slug] > 0 ? (
             <div key={index} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
               <input
                 type="radio"
@@ -115,19 +97,19 @@ return(
               <label htmlFor={`servicio-${item.id}`} style={{ marginLeft: 8 }}>
                 {item.nombre}
               </label>
-              <div className="badge badge-soft badge-primary" style={{ marginLeft: 'auto' }}>{conteoPorTipo[item.slug]}</div>
+              <div className="badge badge-soft badge-primary" style={{ marginLeft: 'auto' }}>{conteoPorTipoProp[item.slug]}</div>
             </div>
           ) : null
         )}
       </div>
       </>
     )}
-    {sectoresPaisVisibles && conteoPorSector && (
+    {sectoresPaisVisibles && conteoPorSectorProp && (
       <>
         <div className="font-semibold mb-1 mt-1">Sector País</div>
         <div>
         {sectoresPais && sectoresPais.nodes.map(item => (
-          conteoPorSector[item.slug] && conteoPorSector[item.slug] > 0 ? (
+          conteoPorSectorProp[item.slug] && conteoPorSectorProp[item.slug] > 0 ? (
           <div key={item.id} style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
             <input
               type="checkbox"
@@ -140,7 +122,7 @@ return(
             <label htmlFor={`sector-${item.id}`} style={{ marginLeft: 8 }}>
               {item.nombre}
             </label>
-            <div className="badge badge-soft badge-primary" style={{ marginLeft: 'auto' }}>{conteoPorSector[item.slug]}</div>
+            <div className="badge badge-soft badge-primary" style={{ marginLeft: 'auto' }}>{conteoPorSectorProp[item.slug]}</div>
           </div>
           ) : null
         ))}

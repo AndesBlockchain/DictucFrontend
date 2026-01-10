@@ -48,7 +48,10 @@ module.exports = {
       accessToken: process.env.STRAPI_TOKEN,
       preview: true,
       collectionTypes: [
-        "servicio",
+        {
+          singularName: "servicio",
+          queryLimit: 20
+        },
         "menu-superior",
         "carrusel",
         "sector",
@@ -58,7 +61,10 @@ module.exports = {
         "menu-footer-superior", 
         "menu-footer",
         "menu-secundario",
-        "noticia",
+        {
+          singularName: "noticia",
+          queryLimit:20
+        },
         {
           singularName: "pagina",
           queryParams: {
@@ -68,7 +74,7 @@ module.exports = {
         }
       ],
       singleTypes: ["agente"],
-      queryLimit: 1000,
+      queryLimit: 20,
     },
     },
     {

@@ -13,7 +13,7 @@ export default function PaginasContenido({pageContext,data}) {
   console.log("data",data)
 
   const slug = pageContext.slug;
-  const pagina = data.allStrapiPagina.nodes[0]
+  const pagina = data.strapiPagina
 
   return (
     <PaginaInterior
@@ -76,25 +76,24 @@ export const Head = (props) => {
 };
 
 export const PAGE_QUERY = graphql`
-  query PageQuery($slug: String) {
-    allStrapiPagina(filter: {slug: {eq: $slug}})  {
-      nodes {
-        slug
-        titulo
-        TituloVisible
-        ScrollSpyVisible
-        color_titulo {
-          Codigo
-        }
-        Banner {
-          url
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-            }
+  query PageQuery($slug: String!) {
+    strapiPagina(slug: {eq: $slug}) {
+      slug
+      titulo
+      TituloVisible
+      ScrollSpyVisible
+      color_titulo {
+        Codigo
+      }
+      Banner {
+        url
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
-        Bloques {
+      }
+      Bloques {
 
         ... on STRAPI__COMPONENT_BLOQUES_BLOQUE_SECTORES_PAIS {
             id
@@ -463,5 +462,4 @@ export const PAGE_QUERY = graphql`
         }
       }
     }
-  }
 `;

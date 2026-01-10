@@ -1,8 +1,6 @@
 import * as React from "react"
+import { Slice } from "gatsby"
 
-import Footer from "../components/Footer"
-import FooterSuperior from "../components/FooterSuperior"
-import BarraSuperior from "../components/BarraSuperior"
 import Breadcrumbs from "./Breadcrumbs"
 import BannerInterior from "./BannerInterior"
 
@@ -11,13 +9,13 @@ export default function PaginaInterior({children, breadcrum = [], banner, gatsby
 
   return (
     <main className="container m-auto max-w-6xl mb-4 font-montserrat bg-white text-black">
-      <BarraSuperior />
+      <Slice alias="barra-superior" />
       <BannerInterior banner={banner} gatsbyImageData={gatsbyImageData} fallback={fallback} titulo={titulo} titulo_visible={titulo_visible} color_titulo={color_titulo}  />
       <Breadcrumbs items={breadcrum} />
 
       {children}
-      <FooterSuperior />
-      <Footer />
+      <Slice alias="footer-superior" />
+      <Slice alias="footer" />
     </main>
   )
 }
