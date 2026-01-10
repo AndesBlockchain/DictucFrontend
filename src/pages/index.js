@@ -1,8 +1,6 @@
 import * as React from "react"
+import { Slice } from "gatsby"
 
-import Footer from "../components/Footer"
-import FooterSuperior from "../components/FooterSuperior"
-import BarraSuperior from "../components/BarraSuperior"
 import Carrusel from "../components/Carrusel"
 import SectoresPais from "../components/SectoresPais"
 import Agente from "../components/Agente"
@@ -41,18 +39,18 @@ const IndexPage = () => {
 
   return (
     <main className="container m-auto max-w-6xl mb-4 font-montserrat bg-white text-black">
-      <BarraSuperior />
+      <Slice alias="barra-superior" />
       <Carrusel />
       <SectoresPais/>
-      <Agente 
+      <Agente
         titulo="¿Qué <span class='text-azul-dictuc'>Necesitas?</span>"
         franja={true}
       />
       <TiposDeServicios/>
       <Noticias noticias={noticias} titulo='<span class="text-azul-dictuc">Noticias</span> y Proyectos destacados' />
-      <FooterSuperior />
-      <Footer />
-      
+      <Slice alias="footer-superior" />
+      <Slice alias="footer" />
+
       {/* Modal de Alerta */}
       {modalAbierto && modalsFiltrados.length > 0 && (
         <ModalAlerta
