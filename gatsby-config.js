@@ -9,6 +9,11 @@ require("dotenv").config({
 
 const adapter = require("gatsby-adapter-netlify").default
 
+// Configuración de límites según entorno
+const isDevelopment = process.env.NODE_ENV === 'development'
+const DEV_LIMIT = parseInt(process.env.DEV_LIMIT) || 10 // Por defecto 10 items en desarrollo
+const PROD_LIMIT = 1000 // Límite para producción (suficientemente alto)
+
 module.exports = {
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
@@ -50,7 +55,26 @@ module.exports = {
       collectionTypes: [
         {
           singularName: "servicio",
-          queryLimit: 20
+          queryParams: {
+            populate: {
+              tipo_de_servicio: {
+                fields: ["nombre", "slug"]
+              },
+              unidad: {
+                fields: ["nombre"]
+              },
+              sectores_pais: {
+                fields: ["nombre", "slug"]
+              },
+              tarjetas: {
+                populate: {
+                  Texto: {
+                    fields: ["Texto"]
+                  }
+                }
+              }
+            }
+          }
         },
         "menu-superior",
         "carrusel",
@@ -58,23 +82,35 @@ module.exports = {
         "alerta-modal",
         "tipo-de-servicio",
         "tipo-de-contacto",
-        "menu-footer-superior", 
+        "menu-footer-superior",
         "menu-footer",
         "menu-secundario",
         {
           singularName: "noticia",
-          queryLimit:20
+          queryParams: {
+            populate: {
+              foto: {
+                fields: ["url", "alternativeText", "width", "height"]
+              },
+              galeria: {
+                fields: ["url", "alternativeText"]
+              },
+              cuerpo: true,
+              etiqueta_noticias: {
+                fields: ["etiqueta", "documentId"]
+              }
+            }
+          }
         },
         {
           singularName: "pagina",
           queryParams: {
-            populate: "all",
+            populate: "deep",
             publicationState: "preview"
           }
         }
       ],
       singleTypes: ["agente"],
-      queryLimit: 20,
     },
     },
     {
