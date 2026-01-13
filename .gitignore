@@ -4,5 +4,6 @@ public
 .env
 *.code-workspace
 yarn.lock
-.env.production
+.env.*
 .env.development
+.env.production

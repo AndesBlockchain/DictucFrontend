@@ -84,7 +84,7 @@ export default function HomeServicios({ data, pageContext })
   return (
     <>
       <PaginaInterior
-        fallback={bannerLaboratorios}
+        banner={sector.banner}
         titulo={sector.nombre}
         breadcrum={[{ label: "Home", link: "/" }, { label: sector.nombre, link: "/" + slug }]}>
         <div className="mb-4">
@@ -142,6 +142,16 @@ export const query = graphql`
           }
         }
       }
+      banner {
+        url
+        width
+        height
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
+      } 
     }
     allStrapiServicio(
       filter: { sectores_pais: { elemMatch: { slug: { eq: $slug } } } }
