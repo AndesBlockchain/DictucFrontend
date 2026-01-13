@@ -84,7 +84,7 @@ export default function HomeServicios({ data, pageContext })
   return (
     <>
       <PaginaInterior
-        fallback={bannerLaboratorios}
+        banner={sector.banner}
         titulo={sector.nombre}
         breadcrum={[{ label: "Home", link: "/" }, { label: sector.nombre, link: "/" + slug }]}>
         <div className="mb-4">
@@ -133,6 +133,16 @@ export const query = graphql`
       nombre
       slug
       icono {
+        url
+        width
+        height
+        localFile {
+          childImageSharp {
+            gatsbyImageData(width: 280, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
+      }
+      banner {
         url
         width
         height
