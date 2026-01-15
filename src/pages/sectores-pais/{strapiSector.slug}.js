@@ -148,10 +148,10 @@ export const query = graphql`
         height
         localFile {
           childImageSharp {
-            gatsbyImageData(width: 280, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
-      }
+      } 
     }
     allStrapiServicio(
       filter: { sectores_pais: { elemMatch: { slug: { eq: $slug } } } }

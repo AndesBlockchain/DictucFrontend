@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const useNoticiasPorAgno = () => {
   const data = useStaticQuery(graphql`
     {
-      allStrapiNoticia(sort: { fecha: DESC }) {
+      allStrapiNoticia(sort: { fecha: DESC }, limit: 10) {
         nodes {
           slug
           titulo

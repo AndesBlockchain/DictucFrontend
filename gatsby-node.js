@@ -1,6 +1,7 @@
-exports.createPages = async ({ actions }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createSlice } = actions
 
+  // Crear slices compartidos (header, footer)
   createSlice({
     id: `barra-superior`,
     component: require.resolve(`./src/slices/BarraSuperior.js`),
@@ -15,4 +16,6 @@ exports.createPages = async ({ actions }) => {
     id: `footer`,
     component: require.resolve(`./src/slices/Footer.js`),
   })
+
 }
+
