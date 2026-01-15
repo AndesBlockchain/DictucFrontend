@@ -56,24 +56,7 @@ module.exports = {
         {
           singularName: "servicio",
           queryParams: {
-            populate: {
-              tipo_de_servicio: {
-                fields: ["nombre", "slug"]
-              },
-              unidad: {
-                fields: ["nombre"]
-              },
-              sectores_pais: {
-                fields: ["nombre", "slug"]
-              },
-              tarjetas: {
-                populate: {
-                  Texto: {
-                    fields: ["Texto"]
-                  }
-                }
-              }
-            }
+            populate: "all"
           }
         },
         "menu-superior",
@@ -105,8 +88,7 @@ module.exports = {
         {
           singularName: "pagina",
           queryParams: {
-            populate: "deep",
-            publicationState: "preview"
+            populate: "all"
           }
         }
       ],

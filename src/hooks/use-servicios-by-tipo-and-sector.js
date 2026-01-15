@@ -12,17 +12,24 @@ const useServiciosByTipoAndSector = (tipoServicioSlug, sectorPaisSlug) => {
       }
       nombre
       slug
+      utilidad {
+        data {
+          utilidad
+        }
+      }
+      experiencia {
+        data {
+          experiencia
+        }
+      }
+      potenciales_clientes {
+        data {
+          potenciales_clientes
+        }
+      }
       tipo_de_servicio {
         nombre
         slug
-      }
-      tarjetas {
-        Titulo
-        Texto {
-          data {
-            Texto
-          }
-        }
       }
       unidad {
         nombre

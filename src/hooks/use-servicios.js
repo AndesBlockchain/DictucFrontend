@@ -16,12 +16,19 @@ const useServicios = () => {
         nombre
         slug
       }
-      tarjetas {
-        Titulo
-        Texto {
-          data {
-            Texto
-          }
+      utilidad {
+        data {
+          utilidad
+        }
+      }
+      experiencia {
+        data {
+          experiencia
+        }
+      }
+      potenciales_clientes {
+        data {
+          potenciales_clientes
         }
       }
       unidad {
