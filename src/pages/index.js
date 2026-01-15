@@ -38,7 +38,7 @@ const IndexPage = () => {
   };
 
   return (
-    <main className="container m-auto max-w-6xl mb-4 font-montserrat bg-white text-black">
+    <main className="container m-auto max-w-6xl mb-4 font-montserrat bg-white text-gris-dictuc">
       <Slice alias="barra-superior" />
       <Carrusel />
       <SectoresPais/>
@@ -47,6 +47,9 @@ const IndexPage = () => {
         franja={true}
       />
       <TiposDeServicios/>
+      <div className="flex justify-center mt-6">
+        <a href="/servicios/todos-los-servicios" className="bg-azul-dictuc text-white px-4 py-2 m-4 text-xs rounded-full hover:bg-azul-dictuc/90 transition-all">Ver todos</a>
+      </div>
       <Noticias noticias={noticias} titulo='<span class="text-azul-dictuc">Noticias</span> y Proyectos destacados' />
       <Slice alias="footer-superior" />
       <Slice alias="footer" />

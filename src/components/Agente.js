@@ -55,8 +55,8 @@ const Agente = ({
             className="flex-grow px-6 py-6 text-lg focus:outline-none resize-none"
           />
           <div className="flex justify-end">
-            <button 
-              className="bg-blue-600 text-white px-4 py-2 m-4 text-xs rounded-full hover:bg-blue-700 transition-all"
+            <button
+              className="bg-azul-dictuc text-white px-4 py-2 m-4 text-xs rounded-full hover:bg-azul-dictuc/90 transition-all"
               onClick={handleConsultar}
             >
               Consultar

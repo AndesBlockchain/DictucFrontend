@@ -10,7 +10,6 @@ const BloqueNoticias = ({ datosBloque }) => {
 const noticias = useNoticiasByTag(datosBloque.etiqueta_noticia.documentId);
 const cantidadNoticias= datosBloque.CantidadNoticias
 const mostrarFecha= datosBloque.MostrarFecha
-console.log("bloque noticias",datosBloque)
 
   return (
     <Bloque datosBloque={datosBloque.Bloque}>

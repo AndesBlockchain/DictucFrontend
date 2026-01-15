@@ -39,6 +39,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Color de texto por defecto para toda la página */
+body {
+  color: #53565A;
+}
+
 /* Estilos globales para listas */
 ul {
   list-style-position: inside;

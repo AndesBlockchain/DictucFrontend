@@ -80,6 +80,9 @@ const FiltroServicios = ({
 return(
     <div className="border-1 border-x-gray-500 rounded-md text-xs p-4 flex-1">
     <div className="mb-1 font-semibold text-center font-md mb-2">Filtros de Búsqueda</div>
+    <div className="mt-3 font-semibold">Búsqueda por palabra</div>
+      <input type="text" style={{ width: "100%", padding: 8, margin: "8px 0", borderRadius: 4, border: "1px solid #ccc" }}
+        onChange={handleFiltroTextChange} />
     {tiposDeServicioVisibles && conteoPorTipoProp && (
       <>
         <div className="font-semibold mb-1">Tipo de Servicio</div>
@@ -130,9 +133,7 @@ return(
 
       </>
     )}
-    <div className="mt-3 font-semibold">Búsqueda por palabra</div>
-      <input type="text" style={{ width: "100%", padding: 8, margin: "8px 0", borderRadius: 4, border: "1px solid #ccc" }}
-        onChange={handleFiltroTextChange} />
+
     <SeparadorHorizontal />
     <Agente
     titulo="Asistente IA"

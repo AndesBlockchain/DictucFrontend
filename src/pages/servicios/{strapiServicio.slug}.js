@@ -10,11 +10,12 @@ import bannerLaboratorio from "../../images/BannerLaboratorioServicios.webp";
 export default function Servicio({ data, pageContext }) {
   const servicio = data.strapiServicio;
   const slug = pageContext.slug;
+console.log("banner",servicio.tipo_de_servicio.BannerBuscadorServicios)
 
   return (
     <PaginaInterior
-      fallback={bannerLaboratorio}
-      titulo="Descripción del Servicio"
+      banner={servicio.tipo_de_servicio.BannerBuscadorServicios}
+      titulo={servicio.nombre}
       breadcrum={[
         { label: "Home", link: "/" },
         { label: "Servicios", link: "/" },
@@ -22,31 +23,39 @@ export default function Servicio({ data, pageContext }) {
       ]}
     >
       <h1 className="text-xl font-bold uppercase">{servicio.nombre}</h1>
-      <div className="text-sm text-gray">{servicio.tipo_de_servicio.nombre} | {servicio.unidad.nombre}</div>
-      <div className="mb-8">
+      <div className="mt-4"><strong>Tipo de Servicio:</strong> {servicio.tipo_de_servicio.nombre} </div>
+      <div className="mt-2"><strong>Ejecutor:</strong> {servicio.unidad.nombre}</div>
+      <div className="mb-8 mt-2">
+        <strong>Sectores: </strong>
         {servicio.sectores_pais.map(sector => (
-          <Badge key={sector.slug} texto={sector.nombre} />
+          <span key={sector.slug}>{sector.nombre}</span>
         ))}
       </div>
 
-      {servicio.tarjetas && servicio.tarjetas.length > 0 && (
-        <div>
-          <div id="tarjetas" className="flex flex-row p-8 bg-gray-200 flex-wrap justify-center items-center gap-8 h-80">
-            {servicio.tarjetas.map((tarjeta, idx) => (
-              <CardServicio
-                key={idx}
-                titulo={tarjeta.Titulo}
-                contenido={tarjeta.Texto.data.Texto}
-              />
-            ))}
-          </div>
-          <div className="flex justify-center mb-4 pb-8 bg-gray-200">
-            <a href="#cotizar" className="bg-azul-dictuc text-white px-4 py-1 rounded-full shadow hover:bg-gray-900 transition-all text-sm">
-              Cotizar servicio
-            </a>
-          </div>
+      <div>
+        <div id="tarjetas" className="flex flex-row p-8 bg-gray-200 flex-wrap justify-center items-center gap-8 h-80">
+          <CardServicio
+            key={1}
+            titulo="Utilidad"
+            contenido={servicio.utilidad?.data?.utilidad || "Por completar"}
+          />
+          <CardServicio
+            key={2}
+            titulo="Experiencia"
+            contenido={servicio.experiencia?.data?.experiencia || "Por completar"}
+          />
+          <CardServicio
+            key={3}
+            titulo="Potenciales Clientes"
+            contenido={servicio.potenciales_clientes?.data?.potenciales_clientes || "Por completar"}
+          />
         </div>
-      )}
+        <div className="flex justify-center mb-4 pb-8 bg-gray-200">
+          <a href="#cotizar" className="bg-azul-dictuc text-white px-4 py-1 rounded-full shadow hover:bg-gray-900 transition-all text-sm">
+            Cotizar servicio
+          </a>
+        </div>
+      </div>
 
       <FranjaAzul />
       <div className="text-lg text-center mt-2 uppercase font-semibold">
@@ -71,6 +80,21 @@ export const query = graphql`
     strapiServicio(slug: { eq: $slug }) {
       nombre
       slug
+      utilidad {
+        data {
+          utilidad
+        }
+      }
+      experiencia {
+        data {
+          experiencia
+        }
+      }
+      potenciales_clientes {
+        data {
+          potenciales_clientes
+        }
+      }
       contenido {
         data {
           contenido
@@ -78,14 +102,9 @@ export const query = graphql`
       }
       tipo_de_servicio {
         nombre
-        slug
-      }
-      tarjetas {
-        Titulo
-        Texto {
-          data {
-            Texto
-          }
+        slug      
+        BannerBuscadorServicios{
+          url
         }
       }
       unidad {

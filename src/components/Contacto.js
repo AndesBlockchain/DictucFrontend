@@ -278,7 +278,7 @@ export default function Contacto({ titulo = "Formulario de Contacto", border = f
           )}
         </fieldset>  
       <fieldset className="fieldset">
-          <div className="join"><input type="checkbox" {...register("newsletter")} /> &nbsp;Deseo recibir el newsletter de Dictuc</div>
+          <div className="join"><input type="checkbox" {...register("newsletter")} /> &nbsp;Deseo recibir información de Dictuc</div>
       </fieldset>  
       
         <button className="ml-auto mr-auto btn btn-primary mt-2 rounded-full" type="submit">Enviar</button>

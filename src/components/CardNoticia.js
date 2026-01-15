@@ -22,10 +22,10 @@ const CardNoticia = ({ titulo, imagen, gatsbyImageData, fecha, bajada, slug, mos
     />
     <div className="p-4">
       <h3 className="text-base font-semibold mb-2">{titulo}</h3>
-      <div className="text-gray-600 text-xs leading-relaxed mb-3" dangerouslySetInnerHTML={{__html:AcortarNoticia(bajada)}} />
+      <div className="text-xs leading-relaxed mb-3" dangerouslySetInnerHTML={{__html:AcortarNoticia(bajada)}} />
       <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-        {mostrarFecha ? <span className="text-gray-500 text-xs">{fecha}</span> : <span></span>}
-        <a href={"/noticias/" + slug} className="text-blue-600 text-xs hover:text-blue-800 font-medium">Ver más</a>
+        {mostrarFecha ? <span className="text-xs">{fecha}</span> : <span></span>}
+        <a href={"/noticias/" + slug} className="text-azul-dictuc text-xs hover:text-blue-800 font-medium">Ver más</a>
       </div>
     </div>
   </div>

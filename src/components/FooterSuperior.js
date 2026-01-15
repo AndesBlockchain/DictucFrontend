@@ -30,7 +30,7 @@ const FooterSuperior = () => {
     </div>
     {/* Certificaciones */}
     <div className="col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-6">
-      <div className="text-blue-700 text-base font-bold mb-3 self-start" style={{ marginLeft: '4px' }}>Certificaciones</div>
+      <div className="text-azul-dictuc font-bold mb-3 self-start" style={{ marginLeft: '4px' }}>Certificaciones</div>
       <div className="flex flex-row gap-4 w-full">
         {data.allStrapiMenuFooterSuperior.nodes.map(item => (
           <div className="w-16 h-16 flex items-center justify-center">
@@ -41,7 +41,7 @@ const FooterSuperior = () => {
     </div>
     {/* Empresas Relacionadas */}
     <div className="col-span-12 md:col-span-2">
-      <div className="text-blue-700 text-base font-bold mb-3">Entidades Relacionadas</div>
+      <div className="text-azul-dictuc font-bold mb-3">Entidades Relacionadas</div>
       <div>
         <img src={logo_gbc} className="h-12" alt="Logo GBC" />
       </div>

@@ -62,12 +62,8 @@ const BarraSuperior = () => {
           ))}
           {/* Barra de búsqueda */}
           <div className="w-full lg:w-auto flex flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-2">
-            <input
-              type="text"
-              placeholder="Buscar..."
-              className="w-full lg:w-auto px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <div className="w-full lg:w-auto py-2 lg:py-0 hover:text-blue-600 cursor-pointer text-[10px]">Buscar en el sitio</div>
+            <input type="text" placeholder="Buscar en el sitio" className="w-full lg:w-auto px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            <div className="w-full lg:w-auto py-2 lg:py-0 hover:text-blue-600 cursor-pointer text-[10px]"></div>
           </div>
         </div>
       </nav>

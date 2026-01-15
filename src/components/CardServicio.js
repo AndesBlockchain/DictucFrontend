@@ -13,7 +13,7 @@ const CardServicio = ({ titulo, icono, imagen, contenido, callToAction=false, co
   const bg_color = 'bg-' + color_fondo;
 
   return (
-    <div className={clsx("flex flex-col w-80 h-full rounded-xl shadow-lg overflow-hidden flex-1",
+    <div className={clsx("flex flex-col w-72 h-full rounded-xl shadow-lg overflow-hidden flex-1",
       color_fondo && color_fondo !== "white" && "border")}>
       <div className={clsx("p-4 flex flex-col flex-1", bg_color)}>
 
@@ -25,7 +25,7 @@ const CardServicio = ({ titulo, icono, imagen, contenido, callToAction=false, co
           containerClassName="h-32 flex items-center justify-center mx-auto"
         />
 
-        <h3 className={clsx("text-lg font-bold mb-2 text-center", `text-${color_texto}`)}>
+        <h3 className={clsx("text-base font-bold mb-2 text-center", `text-${color_texto}`)}>
           {titulo}
         </h3>
 
